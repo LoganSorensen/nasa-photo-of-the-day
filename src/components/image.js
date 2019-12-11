@@ -6,10 +6,10 @@ export default function Image() {
     const [image, setImage] = useState([]);
 
     useEffect(() => {
-        axios.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        // axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
             .then(response => {
                 console.log(response);
-                setImage(response.data.url);
+                setImage(response.data);
             })
             .catch(error => {
                 console.log("The data was not returned", error)
@@ -18,9 +18,13 @@ export default function Image() {
 
     return (
         <div className="container">
-            <div className="entry">
-                <ImageCard imgUrl={image} />
-            </div>
+            <ImageCard 
+            key={image.id}
+            imageUrl={image.url}
+            date={image.date}
+            explanation={image.explanation}
+            title={image.title}
+            />
         </div>
     )
 }
