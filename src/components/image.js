@@ -18,14 +18,16 @@ export default function Image() {
     }, []);
 
     return (
-        <div className="container">
+        // <div className="container">
+        <>
             <ImageCard 
             key={image.id}
-            imageUrl={image.url}
+            imageUrl={image.hdurl}
             date={image.date}
             explanation={image.explanation}
             title={image.title}
             />
-        </div>
+            </>
+        // </div>
     )
 }
