@@ -20,7 +20,7 @@ export default function Image() {
   useEffect(() => {
     axios
       .get(
-        `https://api.nasa.gov/planetary/apod?date=${date.year}-${date.month}-${date.day}&api_key=MlykAlnBMA0tkv2jNksHukv3eAzu1taB1jhaFePr`
+        `https://api.nasa.gov/planetary/apod?date=${date.year}-${date.month}-${date.day}&api_key=${process.env.REACT_APP_API_KEY}`
       )
       .then((response) => {
         console.log(response);
